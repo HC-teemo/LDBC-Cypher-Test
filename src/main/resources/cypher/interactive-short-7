@@ -1,0 +1,9 @@
+MATCH (m:post{id:"$postId"})<-[:replyOf]-(c:comment)-[:hasCreator]->(p:person)
+MATCH (m)-[:hasCreator]->(a:person)-[r:knows]-(p)
+RETURN
+  c.id AS commentId,
+  c.content AS commentContent,
+  c.creationDate AS commentCreationDate,
+  p.id AS replyAuthorId,
+  p.firstName AS replyAuthorFirstName,
+  p.lastName AS replyAuthorLastName
