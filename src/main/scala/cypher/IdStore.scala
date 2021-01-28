@@ -22,7 +22,7 @@ class IdStore(file: File){
 
   def nextId(): String = {
     if (iter == null)
-      iter = _ids.iterator
+      iter = _ids.toIterator
 
     iter.next()
   }

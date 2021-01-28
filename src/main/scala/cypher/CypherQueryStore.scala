@@ -15,7 +15,7 @@ import scala.io.Source
  */
 class CypherQueryStore(cypherFiles: Array[File], idFiles: Array[File]){
 
-  val _cyphers: Array[(String, String)] = cypherFiles.map(getCypherFromFile)
+  val _cyphers: Array[(String, String)] = cypherFiles.map(getCypherFromFile).sortBy(_._1)
 
   val _ids: Map[String, IdStore] = idFiles.map(f => f.getName -> new IdStore(f)).toMap
 
